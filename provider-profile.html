@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Look Spa - Beauty Secure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #a91b60;
+            stroke-width: 2;
+        }
+
+        .logo-text {
+            color: #a91b60;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background: white;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            border-color: #a91b60;
+            color: #a91b60;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .profile-category {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff3cd;
+            color: #856404;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .verification-badge::before {
+            content: "⚠";
+            font-size: 14px;
+        }
+
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .location::before {
+            content: "📍";
+            font-size: 16px;
+        }
+
+        .rating-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            color: #ffc107;
+            font-size: 20px;
+        }
+
+        .star.empty {
+            color: #ddd;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* About Section */
+        .section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Safety & Trust Rating Card */
+        .safety-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .safety-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .shield-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .shield-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #a91b60;
+            stroke-width: 2;
+        }
+
+        .safety-header h2 {
+            font-size: 22px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .safety-score-section {
+            margin-bottom: 30px;
+        }
+
+        .score-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .score-label {
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .score-value {
+            font-size: 16px;
+            color: #fd7e14;
+            font-weight: 600;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #dc3545, #ffc107, #28a745);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-bar.medium {
+            width: 68%;
+        }
+
+        .risk-indicators {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Contact Information Card */
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .contact-card h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            color: #666;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #a91b60;
+        }
+
+        /* Customer Reviews Card */
+        .reviews-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .reviews-card h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .no-reviews {
+            color: #999;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        /* Book Service Card */
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .book-card h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .btn-login-book {
+            width: 100%;
+            padding: 16px;
+            background: #a91b60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-login-book:hover {
+            background: #8a1550;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .signup-link a {
+            color: #a91b60;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .profile-card,
+            .safety-card,
+            .contact-card,
+            .reviews-card,
+            .book-card {
+                padding: 25px;
+            }
+
+            .profile-header h1 {
+                font-size: 26px;
+            }
+
+            .profile-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                </svg>
+            </div>
+            <span class="logo-text">Beauty Secure</span>
+        </a>
+        <a href="index.html" class="back-button">
+            ← Back to Providers
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Provider Profile Card -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <h1>Fresh Look Spa</h1>
+                <p class="profile-category">Spa & Facial</p>
+                
+                <div class="verification-badge">
+                    Verification Pending
+                </div>
+                
+                <div class="profile-meta">
+                    <span class="location">Eastside</span>
+                    
+                    <div class="rating-display">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star empty">★</span>
+                        </div>
+                        <span class="rating-text">4.5 (45 reviews)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="section">
+                <h2>About</h2>
+                <p>Relaxing spa treatments and facial services to rejuvenate your skin.</p>
+            </div>
+        </div>
+
+        <!-- Safety & Trust Rating Card -->
+        <div class="safety-card">
+            <div class="safety-header">
+                <div class="shield-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                </div>
+                <h2>Safety & Trust Rating</h2>
+            </div>
+
+            <div class="safety-score-section">
+                <div class="score-header">
+                    <span class="score-label">Safety Score</span>
+                    <span class="score-value">68/100 - Medium Risk - Caution</span>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar medium"></div>
+                </div>
+                
+                <div class="risk-indicators">
+                    <span>High Risk</span>
+                    <span>Medium Risk</span>
+                    <span>Low Risk</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information Card -->
+        <div class="contact-card">
+            <h2>Contact Information</h2>
+            
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:5553456789">(555) 345-6789</a>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@freshlook.com">info@freshlook.com</a>
+            </div>
+        </div>
+
+        <!-- Customer Reviews Card -->
+        <div class="reviews-card">
+            <h2>Customer Reviews</h2>
+            <p class="no-reviews">No reviews yet</p>
+        </div>
+
+        <!-- Book Service Card -->
+        <div class="book-card">
+            <h2>Book Service</h2>
+            <a href="login.html" class="btn-login-book">Login to Book</a>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bar on page load
+        window.addEventListener('load', function() {
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.style.width = '0';
+            setTimeout(() => {
+                progressBar.style.width = '68%';
+            }, 200);
+        });
+    </script>
+</body>
+</html>

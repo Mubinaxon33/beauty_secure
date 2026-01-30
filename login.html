@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Secure - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .shield-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .shield-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #a91b60;
+        }
+
+        h1 {
+            color: #a91b60;
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .demo-accounts {
+            background: #e8f4f8;
+            border: 1px solid #d1e7f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .demo-accounts h3 {
+            color: #2c5282;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .demo-accounts ul {
+            list-style: none;
+            font-size: 14px;
+            color: #2c5282;
+        }
+
+        .demo-accounts li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .demo-accounts li:hover {
+            color: #1a365d;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background: #f8f9fa;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #a91b60;
+            background: white;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: #a91b60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #8a1550;
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #a91b60;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 15px 0;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <a href="index.html" style="display: block;">
+            <div class="shield-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                </svg>
+            </div>
+        </a>
+
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Login to your Beauty Secure account</p>
+
+        <div class="demo-accounts">
+            <h3>Demo Accounts:</h3>
+            <ul>
+                <li data-email="user@test.com">• User: user@test.com</li>
+                <li data-email="provider@test.com">• Provider: provider@test.com</li>
+                <li data-email="admin@test.com">• Admin: admin@test.com</li>
+                <li data-password="password">• Password: password</li>
+            </ul>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="your.email@example.com"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="links">
+            <a href="index.html">← Back to Home</a>
+            <span class="divider">|</span>
+            <a href="signup.html">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Demo login validation
+            const validAccounts = {
+                'user@test.com': 'password',
+                'provider@test.com': 'password',
+                'admin@test.com': 'password'
+            };
+
+            if (validAccounts[email] === password) {
+                alert('Login successful! Welcome, ' + email);
+                // Redirect to homepage
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid email or password. Please try one of the demo accounts.');
+            }
+        });
+
+        // Fill in demo account on click
+        document.querySelectorAll('.demo-accounts li').forEach(item => {
+            item.addEventListener('click', function() {
+                const email = this.getAttribute('data-email');
+                const password = this.getAttribute('data-password');
+                
+                if (email) {
+                    document.getElementById('email').value = email;
+                }
+                if (password) {
+                    document.getElementById('password').value = password;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
